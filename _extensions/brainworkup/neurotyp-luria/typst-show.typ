@@ -1,1 +1,0 @@
-/Users/joey/neurotyp/luria/_extensions/neurotyp-luria/typst-show.typ
