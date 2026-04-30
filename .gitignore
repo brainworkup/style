@@ -13,3 +13,4 @@ wheels/
 .history/
 target/
 .omx/
+../../.agents/
