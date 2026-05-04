@@ -71,12 +71,12 @@ pick_font <- function(candidates) {
   candidates[[1]]
 }
 
-preferred_sans <- c("IBM Plex Sans", "Source Sans 3", "Helvetica", "Arial")
+preferred_sans <- c("Equity B", "IBM Plex Sans", "Source Sans 3", "Helvetica")
 preferred_serif <- c(
+  "Equity B",
   "IBM Plex Serif",
-  "Source Serif 4",
-  "Times",
-  "Times New Roman"
+  "Source Serif 4"
+
 )
 preferred_mono <- c("IBM Plex Mono", "Menlo", "Courier")
 
@@ -141,4 +141,6 @@ ggplot2::theme_set(
 
 {{< pagebreak >}}
 
+::: {.content-visible when-meta="include_appendix"}
 {{< include _03-03_appendix.qmd >}}
+:::

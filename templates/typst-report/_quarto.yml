@@ -1,6 +1,6 @@
 project:
   type: default
-  title: "cingulate"
+  title: "style"
   execute-dir: project
 
   render:
