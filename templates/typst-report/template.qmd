@@ -10,14 +10,15 @@ date_of_report: last-modified
 #| label: setup
 #| include: false
 #| cache: false
+
 # Load required packages
 suppressPackageStartupMessages({
   library(dplyr)
   library(readr)
   library(here)
   library(yaml)
-  library(cingulate)
-  cingulate::setup_cingulate()
+  library(neuro2)
+  neuro2::setup_neuro2()
 })
 
 # Set knitr options
@@ -30,9 +31,9 @@ knitr::opts_knit$set(
 )
 
 options(
-  cingulate.llm.backend = "ollama",
-  cingulate.llm.temperature = 0.2,
-  cingulate.llm.model_override = NULL
+  neuro2.llm.backend        = "ollama",
+  neuro2.llm.temperature    = 0.2,
+  neuro2.llm.model_override = NULL
 )
 
 # Enable chunk caching for faster re-renders
@@ -41,9 +42,9 @@ knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = FALSE)
 # Make render faster by default: skip regenerating assets if present,
 # suppress verbose logging, and avoid PDF duplicates of tables
 options(
-  cingulate.skip_if_exists = TRUE,
-  cingulate.verbose = FALSE,
-  cingulate.tables.pdf = FALSE
+  neuro2.skip_if_exists = TRUE,
+  neuro2.verbose = FALSE,
+  neuro2.tables.pdf = FALSE
 )
 
 # Set environment variables with default values
@@ -71,12 +72,12 @@ pick_font <- function(candidates) {
   candidates[[1]]
 }
 
-preferred_sans <- c("Equity B", "IBM Plex Sans", "Source Sans 3", "Helvetica")
+preferred_sans <- c("IBM Plex Sans", "Source Sans 3", "Helvetica", "Arial")
 preferred_serif <- c(
-  "Equity B",
   "IBM Plex Serif",
-  "Source Serif 4"
-
+  "Source Serif 4",
+  "Times",
+  "Times New Roman"
 )
 preferred_mono <- c("IBM Plex Mono", "Menlo", "Courier")
 
@@ -108,7 +109,6 @@ ggplot2::theme_set(
 #v(2em, weak: true)
 #show block: set par(leading: 0.65em)
 #block[
-*CASE NUMBER:* #case_number \
 *PATIENT NAME:* #name \
 *DATE OF BIRTH:* {{< var dob >}}, Age {{< var age >}} \
 *DATE(S) OF EXAM:* {{< var doe >}}, {{< var doe2 >}}, and {{< var doe3 >}} \
@@ -141,6 +141,4 @@ ggplot2::theme_set(
 
 {{< pagebreak >}}
 
-::: {.content-visible when-meta="include_appendix"}
 {{< include _03-03_appendix.qmd >}}
-:::
