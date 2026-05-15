@@ -17,8 +17,8 @@ execute:
   freeze: auto
   cache: true
   engine: knitr
-  tools:
-    r: "/usr/local/bin/R"
+  # tools:
+  #   r: "/usr/local/bin/R"
 
 editor:
   markdown:

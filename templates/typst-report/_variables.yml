@@ -14,7 +14,7 @@ education: "10 years"
 # Clinician information
 clinician: "Joey Trampush, Ph.D."
 clinic_name: "Brainworkup Neuropsychology, LLC"
-clinic_address: "Marina del Rey, California, NY 12345"
+clinic_address: "Marina del Rey, California, 12345"
 
 # Report options
 include_summary: true

@@ -5,7 +5,7 @@ default:
     dob: "XXXX-XX-XX"
     doe: "2025-01-01"
   data:
-    input_dir: data/raw
+    input_dir: data-raw
     output_dir: data
     format: all
   processing:
@@ -21,9 +21,9 @@ default:
     template: template.qmd
     format: neurotyp-pediatric-typst
     output_dir: output
-  mcp:
-    pdf_path: "data/raw/pdf/wisc5.pdf"
-    tree_path: "results/wisc5_report_structure.json"
-    llm_base_url: "http://localhost:11434/v1"
-    llm_model: "ollama/llama3.1"
-    lookup_table: "~/Dropbox/neuropsych_lookup_table.csv"
+  # mcp:
+  #   pdf_path: "data/raw/pdf/wisc5.pdf"
+  #   tree_path: "results/wisc5_report_structure.json"
+  #   llm_base_url: "http://localhost:11434/v1"
+  #   llm_model: "ollama/llama3.1"
+  #   lookup_table: "~/Dropbox/neuropsych_lookup_table.csv"

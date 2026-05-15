@@ -10,15 +10,14 @@ date_of_report: last-modified
 #| label: setup
 #| include: false
 #| cache: false
-
 # Load required packages
 suppressPackageStartupMessages({
   library(dplyr)
   library(readr)
   library(here)
   library(yaml)
-  library(neuro2)
-  neuro2::setup_neuro2()
+  library(cingulate)
+  cingulate::setup_cingulate()
 })
 
 # Set knitr options
@@ -30,11 +29,11 @@ knitr::opts_knit$set(
   optipng = knitr::hook_optipng
 )
 
-options(
-  neuro2.llm.backend        = "ollama",
-  neuro2.llm.temperature    = 0.2,
-  neuro2.llm.model_override = NULL
-)
+# options(
+#   cingulate.llm.backend = "omlx",
+#   cingulate.llm.temperature = 0.2,
+#   cingulate.llm.model_override = NULL
+# )
 
 # Enable chunk caching for faster re-renders
 knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = FALSE)
@@ -42,9 +41,9 @@ knitr::opts_chunk$set(cache = TRUE, autodep = TRUE, cache.comments = FALSE)
 # Make render faster by default: skip regenerating assets if present,
 # suppress verbose logging, and avoid PDF duplicates of tables
 options(
-  neuro2.skip_if_exists = TRUE,
-  neuro2.verbose = FALSE,
-  neuro2.tables.pdf = FALSE
+  cingulate.skip_if_exists = TRUE,
+  cingulate.verbose = FALSE,
+  cingulate.tables.pdf = FALSE
 )
 
 # Set environment variables with default values
@@ -74,10 +73,10 @@ pick_font <- function(candidates) {
 
 preferred_sans <- c("IBM Plex Sans", "Source Sans 3", "Helvetica", "Arial")
 preferred_serif <- c(
+  "Equity B",
   "IBM Plex Serif",
   "Source Serif 4",
-  "Times",
-  "Times New Roman"
+  "Times"
 )
 preferred_mono <- c("IBM Plex Mono", "Menlo", "Courier")
 
@@ -124,7 +123,6 @@ ggplot2::theme_set(
 ```{=typst}
 = NEUROCOGNITIVE FINDINGS
 ```
-
 <!-- Domain sections - dynamically included based on available data -->
 
 {{< include _domains_to_include.qmd >}}
